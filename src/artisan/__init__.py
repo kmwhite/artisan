@@ -32,6 +32,9 @@ def craft(klass, *args, **kwargs):
     ''' Create, and return, an instance of klass. The value that are
         passed in via kwargs will override anything generated.
     '''
+    # TODO - Change this to use artisan.plan() to generate a dictionary.
+    # Then, use klass(*args).__dict__.update(instance_plan) to change the
+    # attributes on it.
     crafted_instance = klass(*args)
 
     klass_name = str(klass.__name__)
