@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
+from __future__ import absolute_import, print_function
 
 import artisan
-import blueprints
+import tests.blueprints
 
 # Testing simple class creation
 class Foo(object):
@@ -12,7 +12,7 @@ class Foo(object):
     def __init__(self, *args):
         name = None
 
-artisan.prepare(blueprints)
+artisan.prepare(tests.blueprints)
 
 print('Testing instance creation')
 for num in range(10):
