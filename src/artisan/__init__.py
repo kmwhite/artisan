@@ -43,8 +43,9 @@ def craft(klass, *args, **kwargs):
 
     for attribute in list(known_attrs.keys()):
         if attribute not in kwarg_keys:
-            setattr(crafted_instance, attribute,
-                    known_attrs[attribute]())
+            if not tools.is_attr_set(crafted_instance, attribute):
+                setattr(crafted_instance, attribute,
+                        known_attrs[attribute]())
 
     for attribute in kwarg_keys:
         setattr(crafted_instance, attribute, kwargs[attribute])
