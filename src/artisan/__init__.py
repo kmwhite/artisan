@@ -58,7 +58,7 @@ def plan(klass, *args, **kwargs):
 
     planed_instance = klass(*args)
 
-    for attribute in list(known_attrs.keys()):
+    for attribute in known_attrs.keys():
         if attribute not in kwarg_keys:
             setattr(crafted_instance, attribute,
                     known_attrs[attribute]())
