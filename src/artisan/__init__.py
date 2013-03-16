@@ -37,10 +37,9 @@ def craft(klass, *args, **kwargs):
     # attributes on it.
     crafted_instance = klass(*args)
 
-    klass_name = str(klass.__name__)
     kwarg_keys = list(kwargs.keys())
 
-    known_attrs = __blueprints_by_klass(klass_name)
+    known_attrs = __blueprints_by_klass(str(klass.__name__))
 
     for attribute in list(known_attrs.keys()):
         if attribute not in kwarg_keys:
