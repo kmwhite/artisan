@@ -56,7 +56,7 @@ def craft(klass, *args, **kwargs):
 def plan(klass, *args, **kwargs):
     ''' Create a hash with similar properties as a crafted class. '''
 
-    planed_instance = klass(*args)
+    planed_instance = {}
 
     for attribute in known_attrs.keys():
         if attribute not in kwarg_keys:
