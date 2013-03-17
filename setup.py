@@ -19,5 +19,5 @@ setup(
     description = "A python testing library to help craft better tests",
     license = "BSD",
     keywords = "tdd testing unit unittest",
-    url = "http://kmwhite.github.com/artisan/",
+    url = "http://github.com/kmwhite/artisan/",
 )
