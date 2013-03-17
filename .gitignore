@@ -8,5 +8,9 @@ downloads
 eggs
 parts
 src/*.egg-info
+*.egg-info
 lib
 lib64
+src/htmlcov
+src/.coverage
+venv*
