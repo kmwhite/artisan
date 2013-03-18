@@ -21,7 +21,7 @@ def coverage():
 def coverage_html():
     ''' Generate the HTML coverage report '''
     local('cd src/')
-    local('coverage run test_artisan.py; coverage html; firefox htmlcov/index.html')
+    local('coverage run src/test_artisan.py; coverage html; firefox htmlcov/index.html')
 
 def coverage_loop():
     ''' Run the coverage report in an infinite loop '''
