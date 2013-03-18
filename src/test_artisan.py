@@ -21,17 +21,27 @@ class TestArtisan(unittest.TestCase):
         pass
 
     def test_instance_creation(self):
-        for num in range(10):
-            new_instance = artisan.craft(tests.models.Foo)
-            assert new_instance.name is not None
+
+        new_instance = artisan.craft(tests.models.Foo)
+
+        self.assertIsInstance(new_instance, tests.models.Foo)
+        self.assertIsNotNone(new_instance.name)
 
     def test_instance_creation_with_arguments(self):
-        for num in range(10):
-            name = "FooBarBaz_{}".format(num)
-            new_instance = artisan.craft(tests.models.Bar, num, name=name)
-            assert new_instance.random_attrib == num
-            assert new_instance.name == name
+
+        new_instance = artisan.craft(tests.models.Bar, 42)
+
+        self.assertIsInstance(new_instance, tests.models.Bar)
+        self.assertEqual(new_instance.random_attrib, 42)
 
     def test_keyword_overrides(self):
+
         new_instance = artisan.craft(tests.models.Foo, name='FooBarBaz')
-        assert new_instance.name == 'FooBarBaz'
+
+        self.assertIsInstance(new_instance, tests.models.Foo)
+        self.assertIsNotNone(new_instance.name)
+        self.assertEqual(new_instance.name, 'FooBarBaz')
+
+
+if __name__ == '__main__':
+    unittest.main()
